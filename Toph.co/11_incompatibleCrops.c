@@ -1,47 +1,43 @@
 #include <stdio.h>
-// #include <math.h>
+#include <math.h>
 #include <string.h>
-// #include <stdlib.h>
 int main()
 {
     int row, col, count = 0;
-    char ar[25][25];
+    char crop[25][25];
     scanf("%d %d", &row, &col);
-
+    getchar();
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < col; j++)
         {
-            scanf("%c", &ar[i][j]);
+            scanf("%c", &crop[i][j]);
         }
-        // getchar();
-        // printf("\n");
+        getchar();
     }
 
-    // for (int i = 0; i < row; i++)
+    // printf("printing\n");
+    // for (int k = 0; k < row; k++)
     // {
-    //     for (int j = 0; j < col; j++)
+    //     for (int x = 0; x < col; x++)
     //     {
-    //         printf("%c", &ar[i][j]);
+    //         printf("%c", crop[k][x]);
     //     }
-    //     // getchar();
     //     printf("\n");
     // }
 
-    for (int i = 0; i < row; i++)
+    for (int y = 0; y < row; y++)
     {
-        for (int j = 0; j < col; j++)
+        for (int z = 0; z < col; z++)
         {
-            if (ar[i][j] == '.')
+            // printf("%c", crop[y][z]);
+            if (crop[y][z] == '.' && crop[y + 1][z] != '*' && crop[y - 1][z] != '*' && crop[y][z + 1] != '*' && crop[y][z - 1] != '*')
             {
-                if ((ar[i + 1][j] != '*') && (ar[i - 1][j] != '*') && (ar[i][j + 1] != '*') && (ar[i][j - 1] != '*'))
-                {
-                    count++;
-                    // printf("row = %d \n coloum =  %d  =  %c\n", i, j, ar[i][j+1]);
-                }
+                count++;
             }
         }
     }
     printf("%d\n", count);
+
     return 0;
 }
