@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
-    int a[200], n, counter, temp, i;
+    int a[3000], n, counter, temp, i;
     a[0] = 1;
     counter = 0;
     // printf("Enter the number to Find Factorial: ");
@@ -21,10 +21,12 @@ int main()
             temp = temp / 10;
         }
     }
-
-    for (i = 3; i >= 0; i--)
+    if (counter > 3)
     {
-        printf("%d", a[i]);
+        counter = 3;
     }
+
+    for (i = counter; i >= 0; i--)
+        printf("%d", a[i]);
     return 0;
 }
