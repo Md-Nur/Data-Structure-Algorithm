@@ -1,45 +1,75 @@
-// #include <stdio.h>
-// #include <math.h>
-// #include <string.h>
-// int main()
-// {
-//     int T, N[10000000];
-//     scanf("%d", &T);
-//     if (1 <= T <= 100)
-//     {
-//         for (int i = 0; i < T; i++)
-//         {
-// for (int j = 0; j < count; j++)
-// {
-//     /* code */
-// }
-//         }
-//     }
-//     return 0;
-// }
-
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
-#include <stdlib.h>
-int main()
+void removeSpace(char n[])
 {
-    char line[] = "1 -2 1000 -50 20 7 455";
-    char *p, *e;
-    long input;
-
-    int count = 0;
-    p = line;
-    for (p = line;; p = e)
+    // remove front spaces
+    while (1)
     {
-        input = strtol(p, &e, 10);
-        if (p == e)
+        if (n[0] != ' ')
         {
             break;
         }
-        count++;
+        else
+        {
+            for (int i = 0; i < strlen(n); i++)
+            {
+                n[i] = n[i + 1];
+            }
+        }
     }
-    printf("%d\n", count);
+
+    // remove last spaces
+    while (1)
+    {
+        if (n[strlen(n) - 1] != ' ')
+        {
+            break;
+        }
+        else
+        {
+            n[strlen(n) - 1] = '\0';
+        }
+    }
+}
+
+int countWord(char n[])
+{
+    int count = 1;
+    for (int i = 0; i < strlen(n);)
+    {
+        if (n[i] == ' ')
+        {
+            while (n[i] == ' ')
+            {
+                i++;
+            }
+
+            count++;
+        }
+        // else
+        i++;
+    }
+    return count;
+}
+
+int main()
+{
+    int t, result;
+    scanf("%d", &t);
+    while (t--)
+    {
+        char sentence[100000];
+        scanf(" %[^\n]", sentence);
+        removeSpace(sentence);
+        result = countWord(sentence);
+        if (strlen(sentence) == 0)
+        {
+            result = 0;
+        }
+
+        printf("%d\n", result);
+    }
 
     return 0;
 }
