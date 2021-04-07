@@ -16,7 +16,7 @@ T = int(input())
 for a in range(T):
     sentence = input().split()
     i = 0
-    count = []
+    count = {}
     n = len(sentence)
 
     while (i < len(sentence)):
@@ -25,24 +25,23 @@ for a in range(T):
         while (j < len(sentence)):
             if (sentence[i] == sentence[j]):
                 r += 1
-            if (r>1):
-                sentence.remove(sentence[j])
-                # continue
             j += 1
 
         if r > 1:
-            count.append(r)
-            # sentence.remove(sentence[i])
-            # continue
+            count[sentence[i]] = r
         i += 1
 
-    print(count)
-    count = list(map(fact, count))
-    print(count)
-    c = int(mul(count))
-    print(c)
+    # print(count)
+    lc = []
+    for k in count.values():
+        lc.append(k)
+
+    # print(lc)
+    lc = list(map(fact, lc))
+    # print(lc)
+    c = int(mul(lc))
+    # print(c)
     n = fact(n)
-    # print(n)
     prob = (n/c)
     # print(prob)
     print('1/'+str(int(prob)))
