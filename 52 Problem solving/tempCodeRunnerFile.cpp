@@ -1,33 +1,40 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 int main()
 {
-   int t;
-   char s[1001];
-   int countt[26];
-   scanf("%d", &t);
+   int t, i, k, len;
+   string s;
+   char temp[200];
+   cin >> t;
+   getchar();
    while (t--)
    {
-      scanf(" %[^\n]", s);
-      memset(countt, 0, sizeof countt);
-      for (int i = 0; i < strlen(s); i++)
+      getline(cin, s);
+      len = s.length();
+      k = 0;
+      for (i = 0; i < len; i++)
       {
-         if (s[i] >= 'a' && s[i] <= 'z')
+         if (s[i] != ' ')
          {
-            countt[s[i] - 'a']++;
+            temp[k++] = s[i];
+         }
+         else
+         {
+            for (--k; k >= 0; k--)
+            {
+               cout << temp[k];
+            }
+            cout << s[i];
+            k++;
          }
       }
-      for (int i = 0; i < 26; i++)
+      for (--k; k >= 0; k--)
       {
-         if (countt[i] != 0)
-         {
-            printf("%c = %d\n", 'a' + i, countt[i]);
-         }
+         cout << temp[k];
       }
-      if (t != 0)
-      {
-         printf("\n");
-      }
+      cout << endl;
    }
+
+   return 0;
 }
