@@ -1,40 +1,38 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-   int t, i, k, len;
-   string s;
-   char temp[200];
-   cin >> t;
-   getchar();
-   while (t--)
+   int lines, c;
+   string line;
+   cin >> lines;
+   cin.ignore();
+   while (lines--)
    {
-      getline(cin, s);
-      len = s.length();
-      k = 0;
-      for (i = 0; i < len; i++)
+      getline(cin, line);
+      for (int i = 0; i < line.size(); i++)
       {
-         if (s[i] != ' ')
+         if ((line[i] >= 'a' && line[i] <= 'z') || (line[i] >= 'A' && line[i] <= 'Z'))
          {
-            temp[k++] = s[i];
-         }
-         else
-         {
-            for (--k; k >= 0; k--)
+            if (line[i] == 'a' || line[i] == 'e' || line[i] == 'i' || line[i] == 'o' || line[i] == 'u' || line[i] == 'A' || line[i] == 'E' || line[i] == 'I' || line[i] == 'O' || line[i] == 'U')
             {
-               cout << temp[k];
+               cout << line[i];
             }
-            cout << s[i];
-            k++;
          }
       }
-      for (--k; k >= 0; k--)
+
+      cout << endl;
+
+      for (int i = 0; i < line.size(); i++)
       {
-         cout << temp[k];
+         if (line[i] >= 'a' && line[i] <= 'z' || line[i] >= 'A' && line[i] <= 'Z')
+         {
+            if (line[i] != 'a' && line[i] != 'e' && line[i] != 'i' && line[i] != 'o' && line[i] != 'u' && line[i] != 'A' && line[i] != 'E' && line[i] != 'I' && line[i] != 'O' && line[i] != 'U')
+            {
+               cout << line[i];
+            }
+         }
       }
       cout << endl;
    }
-
-   return 0;
 }
