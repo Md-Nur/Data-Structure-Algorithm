@@ -1,12 +1,12 @@
-//Program Name: Arrays introduction; take a int array then print it reverse
+//Program Name: reverseing a string
 
 /*	====	included header file	====	*/
 #include <iostream>
 // #include <iomanip>
 // #include <cstring>
 // #include <cmath>
-// #include <string>
-
+#include <string>
+#include <algorithm>
 /*	====	Predefine Marcos & namespaces	====	*/
 using namespace std;
 
@@ -25,20 +25,16 @@ using namespace std;
     +-+-+-+-+-+-+-+-+-+-+	*/
 int main()
 {
-    int n;
-    cin >> n;
-    int arr[n];
-    for (int i = 0; i < n; i++)
+    int t;
+    cin >> t;
+    string a;
+    cin.ignore();
+    while (t--)
     {
-        cin >> arr[i];
+        getline(cin, a);
+        reverse(a.begin(), a.end());
+        cout << a << endl;
     }
-    for (int i = n - 1; i >= 0; i--)
-    {
-        cout << arr[i];
-        if (i)
-        {
-            cout << " ";
-        }
-        }
+
     return 0;
 }
