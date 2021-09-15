@@ -1,16 +1,16 @@
-//Program Name: Lcm
+//Program Name: LCM
 
 /*	====	included header file	====	*/
 #include <iostream>
-#include <iomanip>
-#include <cstring>
-#include <cmath>
-#include <string>
-#include <algorithm>
-#include <fstream>
-#include <vector>
-#include <list>
-#include <map>
+// #include <iomanip>
+// #include <cstring>
+// #include <cmath>
+// #include <string>
+// #include <algorithm>
+// #include <fstream>
+// #include <vector>
+// #include <list>
+// #include <map>
 
 /*	====	Stucture, Uninons, Predefine Marcos & namespaces	====	*/
 using namespace std;
@@ -26,21 +26,28 @@ using namespace std;
     +-+-+-+-+-+-+-+-+-+-+	*/
 int main()
 {
-    int T;
+    long long T;
     cin >> T;
     while (T--)
     {
-        int vajjo, vajok, gunfol, temp;
+        long long vajjo, vajok, vagsesh, temp, gunfol;
         cin >> vajjo >> vajok;
-        gunfol = vajjo * vajok;
-        while (vajok != 0)
+        if (vajjo == 0 || vajok <= 0)
         {
-            temp = vajok;
-            vajok  = vajjo % vajok;
-            vajjo = temp;
-            // cout << vajjo <<endl << vajok <<endl<< vagshes << endl;
+            gunfol = 0;
         }
-        cout << "LCM = " << (gunfol / vajok) << endl;
+        else
+        {
+            gunfol = vajjo * vajok;
+            while (vajjo % vajok != 0)
+            {
+                temp = vajjo;
+                vajjo = vajok;
+                vajok = temp % vajok;
+            }
+        }
+        cout << "LCM = " << gunfol / vajok << endl;
     }
+
     return 0;
 }

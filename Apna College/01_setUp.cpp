@@ -1,17 +1,17 @@
-//Program Name: Ekantor upadan
+//Program Name: Setting up
 
 /*	====	included header file	====	*/
-#include <iostream>
+// #include <iostream>
 // #include <iomanip>
 // #include <cstring>
 // #include <cmath>
-#include <string>
+// #include <string>
 // #include <algorithm>
 // #include <fstream>
 // #include <vector>
 // #include <list>
 // #include <map>
-
+#include <bits/stdc++.h>
 /*	====	Stucture, Uninons, Predefine Marcos & namespaces	====	*/
 using namespace std;
 
@@ -26,28 +26,6 @@ using namespace std;
     +-+-+-+-+-+-+-+-+-+-+	*/
 int main()
 {
-    int a;
-    scanf("%d", &a);
-    while (a--)
-    {
-        int size;
-        cin >> size;
-        int arr[size];
-        for (int i = 0; i < size; i++)
-        {
-            cin >> arr[i];
-        }
-
-        for (int i = 0; i < size; i += 2)
-        {
-            if (i != 0)
-            {
-                cout << " ";
-            }
-            cout << arr[i];
-        }
-        cout << endl;
-    }
-
+    cout << "Khela hobe" << endl;
     return 0;
 }
