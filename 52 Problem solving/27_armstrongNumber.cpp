@@ -1,4 +1,4 @@
-//Program Name: 
+//Program Name:
 
 /*	====	included header file	====	*/
 #include <iostream>
@@ -26,19 +26,27 @@ using namespace std;
     +-+-+-+-+-+-+-+-+-+-+	*/
 int main()
 {
-    int a = 0;
-    float b = 5.3;
-    char c = 't';
-    double d = 23.540;
-    short int e = 4;
-    long int f = 3;
-    bool g = true;
-    cout << "Size of int "<<sizeof(a) << endl;
-    cout << "Size of float "<<sizeof(b) << endl;
-    cout << "Size of charecter "<<sizeof(c) << endl;
-    cout << "Size of double "<<sizeof(d) << endl;
-    cout << "Size of short int "<<sizeof(e) << endl;
-    cout << "Size of long int "<<sizeof(f) << endl;
-    cout << "Size of boolean "<<sizeof(g) << endl;
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n, temp, sum = 0,last = 0;
+        cin >> n;
+        temp = n;
+        while (temp > 0)
+        {
+            last = temp % 10;
+            sum += last * last * last;
+            temp /= 10;
+        }
+        if (sum == n)
+        {
+            cout << n << " is an armstrong number!" << endl;
+        }
+        else
+        {
+            cout << n << " is not an armstrong number!" << endl;
+        }
+    }
     return 0;
 }
